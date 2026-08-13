@@ -1,51 +1,63 @@
-# Anna's Universe V3
+<div align="center">
 
-Experiencia espacial interactiva hecha con HTML, CSS y JavaScript puro y preparada para GitHub Pages.
+# 🌌 ANNA'S UNIVERSE 🌌
 
-## Novedades V3
+### ✦ Un pequeño universo creado para Anna ✦
 
-- Interfaz parcialmente bilingüe (español + inglés técnico).
-- Los 8 planetas del Sistema Solar son interactivos:
-  Mercurio, Venus, Tierra, Marte, Júpiter, Saturno, Urano y Neptuno.
-- Cada planeta abre una ficha con datos y un mensaje distinto.
-- Nueva constelación ficticia **A-1308 «Anna»**:
-  - No corresponde a ninguna constelación astronómica real.
-  - Tiene forma de “A” por Anna y Aeroespacial.
-  - Sus estrellas tienen nombres temáticos y tooltip al pasar el cursor.
-- Sonido integrado con archivos locales:
-  - `launch-sequence.wav`
-  - `deep-space-ambience.wav`
-  - `signal-for-anna.wav`
-  - `ui-confirm.wav`
-- Control global de sonido.
-- Golden Record usa ahora un audio real incluido en el proyecto.
-- Mantiene GSAP + ScrollTrigger por CDN para las animaciones.
-- Sigue funcionando como sitio estático, sin Node, npm, React ni backend.
+<br>
 
-## GitHub Pages
+<img src="https://img.shields.io/badge/MISIÓN-AU--1308-8A2BE2?style=for-the-badge" />
+<img src="https://img.shields.io/badge/ESTADO-NOMINAL-32CD32?style=for-the-badge" />
+<img src="https://img.shields.io/badge/DESTINO-ANNA-FF69B4?style=for-the-badge" />
 
-Sube **el contenido de esta carpeta** a la raíz del repositorio:
+<br><br>
+
+> *“Entre miles de millones de estrellas, planetas y caminos posibles,*  
+> *mi lugar favorito en el universo sigue siendo contigo.”*
+
+<br>
+
+[🚀 **INICIAR MISIÓN**](https://mijaeljuy.github.io/ANNA-UNIVERSE/)
+
+</div>
+
+---
+
+## 💫 Para Anna
+
+Este pequeño universo fue creado para **ti**.
+
+No porque una página web pueda explicar todo lo que siento,  
+sino porque quería construir algo que se pareciera un poco a ti:
+
+✨ curioso  
+🌙 bonito  
+🚀 lleno de sueños  
+🌌 y con un universo entero por descubrir.
+
+Tú estudias **Ingeniería Aeroespacial**, así que pensé que una carta normal se quedaba corta.
+
+Preferí darte estrellas.
+
+Preferí darte planetas.
+
+Preferí darte órbitas, señales perdidas en el espacio y una constelación que no existe en ningún catálogo astronómico.
+
+Porque esa constelación existe solamente aquí.
+
+### Para ti.
+
+---
+
+<div align="center">
+
+## ✨ CONSTELACIÓN A-1308 «ANNA» ✨
 
 ```text
-index.html
-style.css
-script.js
-assets/
-```
-
-Después activa GitHub Pages en la configuración del repositorio.
-
-## Audio
-
-Todos los WAV incluidos fueron sintetizados específicamente para este proyecto; no son canciones comerciales ni requieren licencias externas.
-
-Los navegadores bloquean el autoplay antes de una interacción del usuario. Por eso el ambiente comienza después de pulsar **EXPLORAR EL UNIVERSO**.
-
-## Personalización rápida
-
-- Textos generales: `index.html`
-- Mensajes y datos de los planetas: objeto `planetInfo` en `script.js`
-- Colores/órbitas/planetas: `style.css`
-- Audios: `assets/audio/`
-
-Si después quieres usar una canción propia, reemplaza `assets/audio/signal-for-anna.wav` por un archivo tuyo y conserva el mismo nombre, o cambia la ruta del elemento `recordAudio` en `index.html`.
+                  ✦
+                ╱   ╲
+              ✦       ✦
+             ╱         ╲
+            ✦ ─── ✦ ─── ✦
+           ╱             ╲
+          ✦               ✦
