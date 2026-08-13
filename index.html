@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#03050c">
+    <meta name="description" content="Anna's Universe — una misión espacial interactiva dedicada a Anna.">
+    <title>Anna's Universe ✦</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="stars" aria-hidden="true"></canvas>
+
+    <button class="sound-control" id="soundControl" type="button" aria-pressed="true" aria-label="Activar o desactivar sonido">
+        <span class="sound-icon">◉</span>
+        <span id="soundLabel">SONIDO / SOUND · ON</span>
+    </button>
+
+    <aside class="telemetry" aria-hidden="true">
+        <div class="telemetry-head">
+            <span>MISIÓN // AU-1308</span>
+            <span class="status-dot"></span>
+        </div>
+        <div class="telemetry-row"><span>VELOCIDAD</span><strong id="velocityValue">00000 KM/H</strong></div>
+        <div class="telemetry-row"><span>ALTITUD</span><strong id="altitudeValue">000.0 KM</strong></div>
+        <div class="telemetry-row"><span>DISTANCIA</span><strong id="distanceValue">0.00 AU</strong></div>
+        <div class="telemetry-signal"><span>SEÑAL</span><i></i><i></i><i></i><i></i><i></i></div>
+    </aside>
+
+    <div class="launch-overlay" id="launchOverlay" aria-hidden="true">
+        <div class="launch-grid"></div>
+        <p class="eyebrow">COMPUTADORA DE VUELO / FLIGHT COMPUTER · AU-1308</p>
+        <p class="launch-status" id="launchStatus">DESTINO BLOQUEADO / DESTINATION LOCKED</p>
+        <div class="launch-number" id="launchNumber">03</div>
+        <div class="launch-progress"><span id="launchProgress"></span></div>
+        <p class="launch-sub" id="launchSub">Trayectoria: ANNA'S UNIVERSE</p>
+    </div>
+
+    <main>
+        <section class="hero" id="home">
+            <p class="coordinates">13.08.2026 — somewhere in the universe</p>
+            <h1 id="heroTitle">ANNA'S <span>UNIVERSE</span></h1>
+            <p class="message">
+                Entre miles de millones de estrellas, mi lugar favorito en el universo sigue siendo contigo.
+            </p>
+            <button class="primary-button" id="exploreBtn">EXPLORAR EL UNIVERSO <span>↓</span></button>
+            <p class="microcopy">MISIÓN LISTA · MISSION READY</p>
+        </section>
+
+        <section class="section universe" id="universe">
+            <div class="section-heading">
+                <p class="eyebrow">SECTOR 01 / SISTEMA ESTELAR LOCAL</p>
+                <h2>Nuestro Sistema Solar</h2>
+                <p class="subtitle">Los ocho planetas están en línea. Toca cualquiera para abrir su archivo de misión.</p>
+            </div>
+
+            <div class="solar-wrap">
+                <div class="solar-system" aria-label="Sistema solar interactivo con los ocho planetas">
+                    <div class="sun" aria-hidden="true"><span class="sun-core"></span></div>
+
+                    <div class="orbit orbit-1">
+                        <button class="planet mercury" data-planet="mercury" aria-label="Analizar Mercurio">
+                            <span class="planet-label">MERCURIO <small>01</small></span>
+                        </button>
+                    </div>
+
+                    <div class="orbit orbit-2">
+                        <button class="planet venus" data-planet="venus" aria-label="Analizar Venus">
+                            <span class="planet-label">VENUS <small>02</small></span>
+                        </button>
+                    </div>
+
+                    <div class="orbit orbit-3">
+                        <button class="planet earth" data-planet="earth" aria-label="Analizar la Tierra">
+                            <span class="earth-land"></span>
+                            <span class="planet-label">TIERRA <small>03</small></span>
+                        </button>
+                    </div>
+
+                    <div class="orbit orbit-4">
+                        <button class="planet mars" data-planet="mars" aria-label="Analizar Marte">
+                            <span class="planet-label">MARTE <small>04</small></span>
+                        </button>
+                    </div>
+
+                    <div class="orbit orbit-5">
+                        <button class="planet jupiter" data-planet="jupiter" aria-label="Analizar Júpiter">
+                            <span class="jupiter-band"></span>
+                            <span class="jupiter-spot"></span>
+                            <span class="planet-label">JÚPITER <small>05</small></span>
+                        </button>
+                    </div>
+
+                    <div class="orbit orbit-6">
+                        <button class="planet saturn" data-planet="saturn" aria-label="Analizar Saturno">
+                            <span class="ring"></span>
+                            <span class="planet-label">SATURNO <small>06</small></span>
+                        </button>
+                    </div>
+
+                    <div class="orbit orbit-7">
+                        <button class="planet uranus" data-planet="uranus" aria-label="Analizar Urano">
+                            <span class="uranus-ring"></span>
+                            <span class="planet-label">URANO <small>07</small></span>
+                        </button>
+                    </div>
+
+                    <div class="orbit orbit-8">
+                        <button class="planet neptune" data-planet="neptune" aria-label="Analizar Neptuno">
+                            <span class="planet-label">NEPTUNO <small>08</small></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="system-console">
+                    <p class="console-title">SELECTOR DE CUERPOS CELESTES</p>
+                    <p>Selecciona un planeta para abrir su archivo. Las distancias visuales están estilizadas para la experiencia.</p>
+                    <div class="console-line"><span>SISTEMA</span><strong>NOMINAL</strong></div>
+                    <div class="console-line"><span>ESTRELLA</span><strong>SOL</strong></div>
+                    <div class="console-line"><span>OBJETOS</span><strong>08 RASTREADOS</strong></div>
+                    <div class="console-line"><span>MODO</span><strong>ANNA-VERSE</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section constellation-section" id="constellation">
+            <div class="section-heading">
+                <p class="eyebrow">SECTOR 02 / OBSERVACIÓN DE ESPACIO PROFUNDO</p>
+                <h2>Constelación A-1308 «Anna»</h2>
+                <p class="subtitle">Un asterismo ficticio y único para este universo: una A de Anna y de Aeroespacial, atravesada por una pequeña trayectoria orbital.</p>
+            </div>
+
+            <div class="constellation-stage">
+                <div class="scan-line" aria-hidden="true"></div>
+                <svg class="constellation anna-constellation" viewBox="0 0 900 560" role="img"
+                    aria-label="Constelación ficticia Anna A-1308 con forma de A y trayectoria orbital">
+                    <g class="constellation-orbit" aria-hidden="true">
+                        <path d="M165 360 C270 475, 635 485, 760 300 C835 190, 735 115, 630 140"></path>
+                    </g>
+                    <g class="constellation-lines">
+                        <line x1="205" y1="420" x2="450" y2="95"></line>
+                        <line x1="450" y1="95" x2="700" y2="420"></line>
+                        <line x1="315" y1="285" x2="585" y2="285"></line>
+                        <line x1="205" y1="420" x2="155" y2="355"></line>
+                        <line x1="700" y1="420" x2="760" y2="350"></line>
+                        <line x1="450" y1="95" x2="510" y2="150"></line>
+                        <line x1="585" y1="285" x2="645" y2="235"></line>
+                        <line x1="315" y1="285" x2="260" y2="225"></line>
+                    </g>
+                    <g class="constellation-stars">
+                        <circle class="anna-star" data-name="IMPULSO" cx="450" cy="95" r="9"><title>IMPULSO — El punto de partida</title></circle>
+                        <circle class="anna-star" data-name="CURIOSIDAD" cx="315" cy="285" r="7"><title>CURIOSIDAD — Siempre mirando más lejos</title></circle>
+                        <circle class="anna-star" data-name="INGENIO" cx="585" cy="285" r="7"><title>INGENIO — Resolver lo imposible</title></circle>
+                        <circle class="anna-star" data-name="VALENTÍA" cx="205" cy="420" r="8"><title>VALENTÍA — Seguir la trayectoria</title></circle>
+                        <circle class="anna-star" data-name="FUTURO" cx="700" cy="420" r="8"><title>FUTURO — Coordenadas aún por descubrir</title></circle>
+                        <circle class="anna-star" data-name="SUEÑOS" cx="155" cy="355" r="5"><title>SUEÑOS — Más allá de la atmósfera</title></circle>
+                        <circle class="anna-star" data-name="CALMA" cx="760" cy="350" r="5"><title>CALMA — Una señal constante</title></circle>
+                        <circle class="anna-star" data-name="ÓRBITA" cx="510" cy="150" r="4"><title>ÓRBITA — Cerca, incluso en movimiento</title></circle>
+                        <circle class="anna-star" data-name="LUZ" cx="645" cy="235" r="5"><title>LUZ — Siempre visible</title></circle>
+                        <circle class="anna-star" data-name="RUMBO" cx="260" cy="225" r="5"><title>RUMBO — La dirección correcta</title></circle>
+                    </g>
+                </svg>
+
+                <div class="star-tooltip" id="starTooltip" aria-hidden="true">
+                    <span>ESTRELLA / STAR</span>
+                    <strong id="starTooltipText">ANNA</strong>
+                </div>
+
+                <div class="constellation-result">
+                    <p>OBJETO IDENTIFICADO / OBJECT IDENTIFIED</p>
+                    <h3>ANNA</h3>
+                    <div class="catalog-grid">
+                        <span>CATÁLOGO<strong>A-1308</strong></span>
+                        <span>CLASE<strong>ASTERISMO ÚNICO</strong></span>
+                        <span>BRILLO<strong>FUERA DE ESCALA</strong></span>
+                    </div>
+                    <p class="fiction-note">* Formación ficticia creada exclusivamente para Anna's Universe; no corresponde a una constelación astronómica real.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section logs-section" id="logs">
+            <div class="section-heading">
+                <p class="eyebrow">ARCHIVO DE MISIÓN / PERSONAL LOGS</p>
+                <h2>Bitácora de misión</h2>
+                <p class="subtitle">Algunas coordenadas merecen quedarse guardadas para siempre.</p>
+            </div>
+
+            <div class="logs-grid">
+                <article class="log-card">
+                    <span class="log-number">LOG 001</span>
+                    <p class="log-date">PRIMER CONTACTO / FIRST CONTACT</p>
+                    <h3>Trayectoria alterada.</h3>
+                    <p>Todo universo tiene un punto de origen. Para mí, uno de los más importantes fue encontrarte.</p>
+                </article>
+                <article class="log-card">
+                    <span class="log-number">LOG 002</span>
+                    <p class="log-date">ÓRBITA TERRESTRE / EARTH ORBIT</p>
+                    <h3>Ubicación favorita encontrada.</h3>
+                    <p>Hay miles de millones de lugares posibles. Mi favorito sigue siendo cualquiera en el que estés tú.</p>
+                </article>
+                <article class="log-card">
+                    <span class="log-number">LOG 003</span>
+                    <p class="log-date">RUTA FUTURA / FUTURE ROUTE</p>
+                    <h3>Misión extendida.</h3>
+                    <p>Quedan demasiados sitios, años, planes y aventuras por explorar. Solicitud de extensión: indefinida.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section record-section" id="record">
+            <div class="section-heading">
+                <p class="eyebrow">OBJETO DE ARCHIVO / GOLDEN RECORD</p>
+                <h2>Una señal para el espacio profundo</h2>
+                <p class="subtitle">Este disco reproduce una pieza ambiental original generada para esta página. No usa ninguna canción comercial.</p>
+            </div>
+
+            <div class="record-layout">
+                <button class="golden-record" id="recordButton" aria-label="Reproducir transmisión de Anna">
+                    <span class="record-rings"></span>
+                    <span class="record-center"></span>
+                    <span class="record-label">AU<br>1308</span>
+                </button>
+                <div class="record-console">
+                    <p class="console-title">TRANSMISIÓN DE AUDIO / AUDIO TRANSMISSION</p>
+                    <h3 id="recordStatus">SEÑAL EN ESPERA</h3>
+                    <p id="recordHelp">Pulsa el disco para iniciar «Signal for Anna», una pequeña transmisión sintetizada incluida dentro del proyecto.</p>
+                    <div class="audio-bars" id="audioBars" aria-hidden="true">
+                        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                    </div>
+                    <div class="console-line"><span>ARCHIVO</span><strong>signal-for-anna.wav</strong></div>
+                    <div class="console-line"><span>ORIGEN</span><strong>ANNA'S UNIVERSE</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section final-section" id="final">
+            <div class="final-terminal">
+                <p class="eyebrow">TRANSMISIÓN FINAL / FINAL TRANSMISSION</p>
+                <p class="terminal-line"><span>ESTRELLAS ANALIZADAS</span><strong>∞</strong></p>
+                <p class="terminal-line"><span>PLANETAS EXPLORADOS</span><strong>8 / 8</strong></p>
+                <p class="terminal-line"><span>UNIVERSOS POSIBLES</span><strong>∞</strong></p>
+                <p class="terminal-line favorite"><span>HUMANA FAVORITA</span><strong>ANNA</strong></p>
+                <div class="final-copy">
+                    <p>En cada universo,</p>
+                    <h2>te volvería a elegir.</h2>
+                </div>
+                <button class="secondary-button" id="restartBtn">REINICIAR MISIÓN ↺</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close" id="closeModal" aria-label="Cerrar">×</button>
+            <p class="modal-label">ANÁLISIS PLANETARIO / PLANETARY ANALYSIS</p>
+            <div class="modal-title-row">
+                <div>
+                    <span id="modalCode">SOL-00</span>
+                    <h2 id="modalTitle"></h2>
+                </div>
+                <span class="modal-status">RASTREADO</span>
+            </div>
+            <div class="planet-data" id="planetData"></div>
+            <div class="modal-divider"></div>
+            <p class="modal-message" id="modalMessage"></p>
+        </div>
+    </div>
+
+    <audio id="launchAudio" src="assets/audio/launch-sequence.wav" preload="auto"></audio>
+    <audio id="ambientAudio" src="assets/audio/deep-space-ambience.wav" preload="auto" loop></audio>
+    <audio id="recordAudio" src="assets/audio/signal-for-anna.wav" preload="auto"></audio>
+    <audio id="uiAudio" src="assets/audio/ui-confirm.wav" preload="auto"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
